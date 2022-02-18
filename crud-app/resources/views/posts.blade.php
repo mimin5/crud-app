@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Icha | Blog</title>
-</head>
-<body>
-    <h1>Halaman Blog</h1>
-</body>
-</html>
+
+@extends('layouts.main')
+
+@section('container')
+
+
+@foreach ($posts as $post)
+<article class="mb-5">
+    <h2>
+        <a href="/blog/{{ $post["slug"] }}"> {{ $post["tittle"] }}</a>
+    </h2>
+    <h5>By:{{ $post["author"] }}</h5>
+    <p>{{ $post["body"] }}</p>
+</article>
+@endforeach
+
+@endsection
